@@ -26,7 +26,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Principal/main.fxml"));
         Parent root = loader.load();
         scene = new Scene(root);
-
+//prueba
         primaryStage.setTitle("Ventana Principal");
         primaryStage.setScene(scene);
         primaryStage.show();
