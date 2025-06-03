@@ -64,7 +64,9 @@ public class RegistrarController {
 
         Cliente cliente = new Cliente(dni, nombre, apellidos, telefono, fNacimiento, direccion, email, true, pass, 0.0f, 0, "", fideliz, 2);
 
-        new ClienteDAO().registrar(cliente);
+        ClienteDAO dao = new ClienteDAO();
+        dao.registrar(cliente);
+
         System.out.println("El cliente " + nombre + " " + apellidos + " se ha registrado con éxito.");
     }
 

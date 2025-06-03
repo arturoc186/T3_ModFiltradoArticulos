@@ -1,7 +1,5 @@
 package DAO;
 
-import POJOS.*;
-
 import java.sql.*;
 
 public class DBUtils {
@@ -17,16 +15,13 @@ public class DBUtils {
             conn = DriverManager.getConnection(jdbcUrl, "root", "MySQL24-25");
             System.out.println("Conexión establecida con la Base de datos...");
         } catch (SQLException se) {
-            //Errores de JDBC
             se.printStackTrace();
         } catch (Exception e) {
-            //Errores de Class.forName
             e.printStackTrace();
         }
     }
 
     public void cerrarConexion() {
-        // se cerrará la conexión a la BBDD.
         try {
             if (conn != null) {
                 conn.close();

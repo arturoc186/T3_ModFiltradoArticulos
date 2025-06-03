@@ -53,6 +53,9 @@ public class Cliente extends Usuario {
 
     }
 
+    public Cliente(String email, String password) {
+    }
+
     // Métodos abstractos implementados
     @Override
     public String info() {

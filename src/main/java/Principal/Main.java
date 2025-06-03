@@ -16,27 +16,27 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Comprobar conexión a la BBDD
         DBUtils bbdd = new DBUtils();
         System.out.println("Comprobando conexión a la BD... · [0%]");
         bbdd.conecta();
         System.out.println("Conexión establecida con Tienda_Ropa... · [100%]");
 
-        // Cargar el FXML principal y asignar la escena al campo estático
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Principal/main.fxml"));
         Parent root = loader.load();
         scene = new Scene(root);
-//prueba
+
         primaryStage.setTitle("Ventana Principal");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
+
     /**
      * Cambia la raíz de la escena estática para navegar entre vistas.
      * @param fxml Nombre del fichero FXML (sin la extensión)
-     * @throws IOException si no se encuentra el recurso
+     * @throws IOException devolverá un error si no encuentra el Root.
      */
+
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }

@@ -133,12 +133,12 @@
       </ImageView>
       <Pane layoutX="110.0" layoutY="87.0" prefHeight="262.0" prefWidth="270.0" styleClass="login-container" stylesheets="@../CSS/Style.css">
          <children>
-            <Button layoutX="36.0" layoutY="203.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="200.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Iniciar la sesión" />
-            <TextField layoutX="35.0" layoutY="148.0" prefHeight="36.0" prefWidth="200.0" />
-            <TextField layoutX="35.0" layoutY="87.0" prefHeight="36.0" prefWidth="200.0" />
+            <Button fx:id="btnIniciarSesion" layoutX="36.0" layoutY="203.0" mnemonicParsing="false" onAction="#btnIniciarSesionClick" prefHeight="23.0" prefWidth="200.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Iniciar la sesión" />
+            <TextField fx:id="fieldContrasena" layoutX="35.0" layoutY="148.0" prefHeight="36.0" prefWidth="200.0" />
+            <TextField fx:id="fieldCorreo" layoutX="35.0" layoutY="87.0" prefHeight="36.0" prefWidth="200.0" />
             <Label layoutX="35.0" layoutY="130.0" prefHeight="15.0" prefWidth="73.0" text="Contraseña:" />
             <Label layoutX="36.0" layoutY="66.0" prefHeight="15.0" prefWidth="109.0" text="Correo electrónico:" />
-            <Hyperlink layoutX="57.0" layoutY="233.0" text="¿Has olvidado tu contraseña?" />
+            <Hyperlink fx:id="hyperlinkOlvidar" layoutX="57.0" layoutY="233.0" onAction="#hyperlinkOlvidarClick" text="¿Has olvidado tu contraseña?" />
             <ImageView fitHeight="25.0" fitWidth="167.0" layoutX="52.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/secondhand.png" />
