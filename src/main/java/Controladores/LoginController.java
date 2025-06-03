@@ -83,12 +83,13 @@ public class LoginController {
     }
 
     @FXML
-    void menuLoginClick(ActionEvent event) {
-
+    void menuLoginClick(ActionEvent event) throws IOException {
+        Main.setRoot("main");
     }
 
     @FXML
-    void menuRegistroClick(ActionEvent event) {
+    void menuRegistroClick(ActionEvent event) throws IOException {
+        Main.setRoot("registrar");
 
     }
 

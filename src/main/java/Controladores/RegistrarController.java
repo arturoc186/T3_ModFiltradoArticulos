@@ -2,6 +2,7 @@ package Controladores;
 
 import DAO.ClienteDAO;
 import POJOS.Cliente;
+import Principal.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -48,7 +50,7 @@ public class RegistrarController {
     private Text textSaldo;
 
     @FXML
-    void btnRegistrarClick(ActionEvent event) {
+    void btnRegistrarClick(ActionEvent event) throws IOException {
         String dni       = fieldDNI.getText().trim();
         String nombre    = fieldNombre.getText().trim();
         String apellidos = fieldApellidos.getText().trim();
@@ -68,16 +70,17 @@ public class RegistrarController {
         dao.registrar(cliente);
 
         System.out.println("El cliente " + nombre + " " + apellidos + " se ha registrado con éxito.");
+        Main.setRoot("main");
     }
 
     @FXML
-    void menuLoginClick(ActionEvent event) {
-
+    void menuLoginClick(ActionEvent event) throws IOException {
+        Main.setRoot("login");
     }
 
     @FXML
-    void menuRegistroClick(ActionEvent event) {
-
+    void menuRegistroClick(ActionEvent event) throws IOException {
+        Main.setRoot("main");
     }
 
 }
