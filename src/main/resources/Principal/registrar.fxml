@@ -42,11 +42,6 @@
             <Image url="@../Images/loginFondo.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgBtnLogin" fitHeight="53.0" fitWidth="32.0" layoutX="450.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" x="2.0">
-         <image>
-            <Image url="@../Images/persona.png" />
-         </image>
-      </ImageView>
       <Text layoutX="33.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AYUDA">
          <font>
             <Font name="System Bold" size="9.0" />
@@ -151,5 +146,14 @@
             <CheckBox fx:id="checkTarjeta" layoutX="31.0" layoutY="185.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="383.0" text="Me gustaría obtener Tarjeta de Fidelización de SecondHand" />
          </children>
       </Pane>
+      <Button fx:id="btnInfoUsuario" layoutX="434.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnInfoUsuarioClick">
+         <graphic>
+            <ImageView fx:id="imgBtnLogin" fitHeight="53.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" x="2.0">
+               <image>
+                  <Image url="@../Images/persona.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

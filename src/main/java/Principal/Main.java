@@ -1,14 +1,16 @@
 package Principal;
 
 import DAO.DBUtils;
-import POJOS.Cliente;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+
+import static javafx.scene.control.Alert.AlertType.WARNING;
 
 public class Main extends Application {
 
@@ -30,13 +32,6 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
-    /**
-     * Cambia la raíz de la escena estática para navegar entre vistas.
-     * @param fxml Nombre del fichero FXML (sin la extensión)
-     * @throws IOException devolverá un error si no encuentra el Root.
-     */
-
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
@@ -45,6 +40,14 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("/Principal/" + fxml + ".fxml"));
         return loader.load();
+    }
+
+    public static void crearAlerta(String titulo, String encabezado, String contenido) {
+        Alert alerta = new Alert(WARNING);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(encabezado);
+        alerta.setContentText(contenido);
+        alerta.showAndWait();
     }
 
     public static void main(String[] args) {

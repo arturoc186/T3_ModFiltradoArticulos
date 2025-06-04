@@ -42,11 +42,6 @@
             <Image url="@../Images/accesorios.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgBtnLogin" fitHeight="53.0" fitWidth="32.0" layoutX="443.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" x="2.0">
-         <image>
-            <Image url="@../Images/persona.png" />
-         </image>
-      </ImageView>
       <Text layoutX="33.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AYUDA">
          <font>
             <Font name="System Bold" size="9.0" />
@@ -132,5 +127,14 @@
       </ImageView>
       <Line endX="397.0" endY="1.52587890625E-5" layoutX="106.0" layoutY="65.0" startX="-106.0" startY="1.52587890625E-5" />
       <Line endX="392.9999694824219" endY="1.0" layoutX="110.0" layoutY="376.0" startX="-106.0" startY="1.52587890625E-5" />
+      <Button fx:id="btnInfoUsuario" layoutX="434.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnInfoUsuarioClick">
+         <graphic>
+            <ImageView fx:id="imgBtnLogin" fitHeight="53.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" x="2.0">
+               <image>
+                  <Image url="@../Images/persona.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

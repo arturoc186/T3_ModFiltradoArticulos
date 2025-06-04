@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -37,11 +38,6 @@
       <ImageView fx:id="imgBtnRopa" fitHeight="306.0" fitWidth="516.0" layoutY="65.0" pickOnBounds="true">
          <image>
             <Image url="@../Images/loginFondo.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imgBtnLogin" fitHeight="53.0" fitWidth="32.0" layoutX="450.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" x="2.0">
-         <image>
-            <Image url="@../Images/persona.png" />
          </image>
       </ImageView>
       <Text layoutX="33.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AYUDA">
@@ -131,17 +127,34 @@
       </ImageView>
       <Pane layoutX="12.0" layoutY="73.0" prefHeight="286.0" prefWidth="483.0" styleClass="login-container" stylesheets="@../CSS/Style.css">
          <children>
-            <Button fx:id="btnIniciarSesion" layoutX="39.0" layoutY="249.0" mnemonicParsing="false" onAction="#btnIniciarSesionClick" prefHeight="23.0" prefWidth="200.0" style="-fx-background-color: #660000; -fx-text-fill: white; -fx-font-weight: bold;" text="Volver al Menú Principal" />
-            <Button fx:id="btnIniciarSesion1" layoutX="245.0" layoutY="249.0" mnemonicParsing="false" onAction="#btnIniciarSesionClick" prefHeight="23.0" prefWidth="200.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Actualizar información" />
-            <TextField fx:id="fieldDireccionEnvio" layoutX="218.0" layoutY="199.0" prefHeight="37.0" prefWidth="239.0" />
-            <TextField fx:id="fieldTarjetaFidelizacion" layoutX="218.0" layoutY="122.0" prefHeight="37.0" prefWidth="239.0" />
-            <TextField fx:id="fieldDireccion" layoutX="218.0" layoutY="74.0" prefHeight="37.0" prefWidth="239.0" />
-            <TextField fx:id="fieldFechaNacimiento" layoutX="218.0" layoutY="21.0" prefHeight="37.0" prefWidth="239.0" />
-            <TextField fx:id="numPedidos" layoutX="26.0" layoutY="199.0" prefHeight="37.0" prefWidth="176.0" />
-            <TextField fx:id="fieldDNI" layoutX="26.0" layoutY="21.0" prefHeight="37.0" prefWidth="176.0" />
-            <TextField fx:id="fieldTelefono" layoutX="26.0" layoutY="74.0" prefHeight="37.0" prefWidth="176.0" />
-            <TextField fx:id="fieldEmail" layoutX="26.0" layoutY="122.0" prefHeight="37.0" prefWidth="176.0" />
+            <Button fx:id="btnVolver" layoutX="39.0" layoutY="249.0" mnemonicParsing="false" onAction="#btnVolverClick" prefHeight="23.0" prefWidth="200.0" style="-fx-background-color: #660000; -fx-text-fill: white; -fx-font-weight: bold;" text="Volver al Menú Principal" />
+            <Button fx:id="btnActualizar" layoutX="245.0" layoutY="249.0" mnemonicParsing="false" onAction="#btnActualizarClick" prefHeight="23.0" prefWidth="200.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Actualizar información" />
+            <TextField fx:id="fieldDireccionEnvio" layoutX="243.0" layoutY="91.0" prefHeight="37.0" prefWidth="222.0" />
+            <TextField fx:id="fieldTarjetaFidelizacion" editable="false" layoutX="243.0" layoutY="140.0" prefHeight="37.0" prefWidth="222.0" />
+            <TextField fx:id="fieldDireccion" layoutX="243.0" layoutY="39.0" prefHeight="37.0" prefWidth="222.0" />
+            <TextField fx:id="fieldFechaNacimiento" layoutX="54.0" layoutY="188.0" prefHeight="37.0" prefWidth="125.0" />
+            <TextField fx:id="fieldPedidos" editable="false" layoutX="54.0" layoutY="140.0" prefHeight="37.0" prefWidth="125.0" />
+            <TextField fx:id="fieldDNI" editable="false" layoutX="54.0" layoutY="39.0" prefHeight="37.0" prefWidth="125.0" />
+            <TextField fx:id="fieldTelefono" layoutX="54.0" layoutY="91.0" prefHeight="37.0" prefWidth="125.0" />
+            <TextField fx:id="fieldEmail" layoutX="242.0" layoutY="188.0" prefHeight="37.0" prefWidth="222.0" />
+            <Label layoutX="20.0" layoutY="42.0" text="Num.&#10;DNI" />
+            <Label layoutX="19.0" layoutY="94.0" text="Nmro&#10;Tlfno." />
+            <Label layoutX="21.0" layoutY="143.0" text="Num&#10;Ped." />
+            <Label layoutX="21.0" layoutY="191.0" text="Fec.&#10;Nac." />
+            <Label layoutX="188.0" layoutY="50.0" text="Dirección" />
+            <Label layoutX="188.0" layoutY="94.0" text="Dirección&#10;de Envío" />
+            <Label layoutX="194.0" layoutY="143.0" text="Tarjeta&#10;Fideliz." />
+            <Label layoutX="200.0" layoutY="191.0" text="Correo&#10;Electr." />
          </children>
       </Pane>
+      <Button fx:id="btnInfoUsuario" layoutX="444.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnInfoUsuarioClick">
+         <graphic>
+            <ImageView fx:id="imgBtnLogin" fitHeight="53.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" x="2.0">
+               <image>
+                  <Image url="@../Images/persona.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

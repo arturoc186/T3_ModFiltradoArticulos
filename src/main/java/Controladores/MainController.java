@@ -1,5 +1,6 @@
 package Controladores;
 
+import DAO.Sesion;
 import Principal.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -55,4 +56,14 @@ public class MainController {
         Main.setRoot("registrar");
     }
 
+    public void btnInfoUsuarioClick(ActionEvent event) throws IOException {
+
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar a infoCliente.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("informacion");
+        }
+    }
 }

@@ -83,4 +83,11 @@ public class RegistrarController {
         Main.setRoot("main");
     }
 
+    @FXML private Button btnInfoUsuario;
+
+    @FXML
+    void btnInfoUsuarioClick(ActionEvent event) throws IOException{
+        Main.setRoot("informacion");
+    }
+
 }

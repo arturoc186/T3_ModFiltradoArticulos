@@ -1,6 +1,7 @@
 package Controladores;
 
 import DAO.ClienteDAO;
+import DAO.Sesion;
 import POJOS.Cliente;
 import Principal.Main;
 import javafx.event.ActionEvent;
@@ -71,6 +72,7 @@ public class LoginController {
         cliente.setPass(password);
 
         ClienteDAO dao = new ClienteDAO();
+        Sesion.setClienteActual(cliente);
         dao.login(cliente);
 
         System.out.println("El login se ha realizado correctamente.");
@@ -91,6 +93,13 @@ public class LoginController {
     void menuRegistroClick(ActionEvent event) throws IOException {
         Main.setRoot("registrar");
 
+    }
+
+    @FXML private Button btnInfoUsuario;
+
+    @FXML
+    void btnInfoUsuarioClick(ActionEvent event) throws IOException{
+        Main.setRoot("informacion");
     }
 
 }

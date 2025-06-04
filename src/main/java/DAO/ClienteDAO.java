@@ -4,12 +4,14 @@ import POJOS.Cliente;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.List;
 
 public class ClienteDAO implements DAO<Cliente, String>{
 
     private static final String INSERTAR_CLIENTE = "INSERT INTO CLIENTE (DNI, nombre, apellidos, telefono, f_nacimiento, direccion, email, activo, pass, saldo_cuenta, num_pedidos, dir_envio, tarjeta_fidelizacion, m_pago) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_LOGIN = "SELECT DNI, nombre, apellidos, telefono, f_nacimiento, direccion, email, activo, pass, saldo_cuenta, num_pedidos, dir_envio, tarjeta_fidelizacion, m_pago FROM CLIENTE WHERE email = ? AND pass  = ?";
+    private static final String ACTUALIZAR_CLIENTE = "UPDATE CLIENTE SET telefono = ?, f_nacimiento = ?, direccion = ?, email = ?, dir_envio= ? WHERE DNI = ?";
 
     public void registrar(Cliente cliente) {
         try (Connection conn = DBUtils.getConexion();
@@ -63,7 +65,26 @@ public class ClienteDAO implements DAO<Cliente, String>{
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error en l'autenticació del client.", e);
+            throw new RuntimeException("Error en la autenticación.", e);
+        }
+    }
+
+    public void update(Cliente cliente) throws SQLException {
+        try (Connection conn = DBUtils.getConexion();
+             PreparedStatement ps = conn.prepareStatement(ACTUALIZAR_CLIENTE)) {
+
+            ps.setString(1, cliente.getTelefono());
+            LocalDate fechaNacimiento = cliente.getfNacimiento().toLocalDate();
+            ps.setDate(2, Date.valueOf(fechaNacimiento));
+            ps.setString(3, cliente.getDireccion());
+            ps.setString(4, cliente.getDir_envio());
+            ps.setString(5, cliente.getEmail());
+            ps.setString(6, cliente.getDni());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Se ha producido un error en la actualización.", e);
         }
     }
 
