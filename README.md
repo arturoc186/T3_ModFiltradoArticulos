@@ -2,7 +2,7 @@
 
 El proyecto está dividido en los siguientes commits.
 
-📍 Commit 1. Inicial
+📍 Commit 1. Inicial<br>
 📍 Commit 2. Registro
 📍 Commit 3. Login & Opt. Consola
 📍 Commit 4. Conexión de infoUsuario
