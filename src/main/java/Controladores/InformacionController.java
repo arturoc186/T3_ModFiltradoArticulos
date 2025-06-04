@@ -139,6 +139,7 @@ public class InformacionController implements Initializable {
         fieldDNI.setText(cliente.getDni());
         fieldFechaNacimiento.setText(String.valueOf(cliente.getfNacimiento()));
         fieldEmail.setText(cliente.getEmail());
+        fieldDireccion.setText(cliente.getDireccion());
         fieldDireccionEnvio.setText(cliente.getDir_envio());
         fieldPedidos.setText(String.valueOf(cliente.getNum_pedidos()));
         fieldTelefono.setText(cliente.getTelefono());
