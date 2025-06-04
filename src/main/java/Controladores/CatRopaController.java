@@ -11,19 +11,16 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class MainController {
+public class CatRopaController {
 
     @FXML
     private Button btnCerrarSesion;
 
     @FXML
-    private ImageView imgBtnAccesorios;
+    private Button btnInfoUsuario;
 
     @FXML
     private ImageView imgBtnLogin;
-
-    @FXML
-    private ImageView imgBtnRopa;
 
     @FXML
     private ImageView imgBtnSettings;
@@ -32,10 +29,13 @@ public class MainController {
     private ImageView imgCarrito;
 
     @FXML
-    private MenuItem menuLogin;
+    private MenuItem menuacc;
 
     @FXML
-    private MenuItem menuRegistro;
+    private MenuItem menulogin;
+
+    @FXML
+    private MenuItem menureg;
 
     @FXML
     private MenuItem menuropa;
@@ -47,17 +47,7 @@ public class MainController {
     private Text textSaldo;
 
     @FXML
-    void menuLoginClick(ActionEvent event) throws IOException {
-        Main.setRoot("login");
-    }
-
-    @FXML
-    void menuRegistroClick(ActionEvent event) throws IOException{
-        Main.setRoot("registrar");
-    }
-
-    public void btnInfoUsuarioClick(ActionEvent event) throws IOException {
-
+    void btnInfoUsuarioClick(ActionEvent event) throws IOException {
         if (Sesion.getClienteActual() == null){
             System.out.println("Un cliente sin cuenta ha intentado entrar a infoCliente.");
             Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
@@ -67,17 +57,24 @@ public class MainController {
         }
     }
 
-
     @FXML
-    void btnAccesorioClick(ActionEvent event) throws IOException {
-        Main.setRoot("catalogoaccesorio");
+    void menuLoginClick(ActionEvent event) throws IOException {
+        Main.setRoot("login");
+
     }
 
     @FXML
-    void btnRopaClick(ActionEvent event) throws IOException {
-        Main.setRoot("catalogoropa");
+    void menuRegistroClick(ActionEvent event) throws IOException {
+        Main.setRoot("registrar");
     }
 
+    @FXML
+    private Button btnVolver;
+
+    @FXML
+    void btnVolverClick(ActionEvent event) throws IOException{
+        Main.setRoot("main");
+    }
 
     @FXML
     void menuAccClick(ActionEvent event) throws IOException {
@@ -86,6 +83,7 @@ public class MainController {
 
     @FXML
     void menuRopaClick(ActionEvent event) throws IOException {
-        Main.setRoot("catalogoropa");
+        Main.setRoot("main");
     }
+
 }

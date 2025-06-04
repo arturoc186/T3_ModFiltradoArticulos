@@ -24,8 +24,8 @@
             <items>
               <MenuItem fx:id="menulogin" mnemonicParsing="false" onAction="#menuLoginClick" text="Acceder" />
                   <MenuItem fx:id="menureg" mnemonicParsing="false" onAction="#menuRegistroClick" text="Registro" />
-                  <MenuItem fx:id="menuropa" mnemonicParsing="false" text="Ropa" />
-                  <MenuItem fx:id="menuacc" mnemonicParsing="false" onAction="#menuLoginClick" text="Accesorios" />
+                  <MenuItem fx:id="menuropa" mnemonicParsing="false" onAction="#menuRopaClick" text="Ropa" />
+                  <MenuItem fx:id="menuacc" mnemonicParsing="false" onAction="#menuAccClick" text="Accesorios" />
             </items>
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">

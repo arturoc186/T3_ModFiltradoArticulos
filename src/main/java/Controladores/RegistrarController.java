@@ -1,6 +1,7 @@
 package Controladores;
 
 import DAO.ClienteDAO;
+import DAO.Sesion;
 import POJOS.Cliente;
 import Principal.Main;
 import javafx.event.ActionEvent;
@@ -86,8 +87,25 @@ public class RegistrarController {
     @FXML private Button btnInfoUsuario;
 
     @FXML
-    void btnInfoUsuarioClick(ActionEvent event) throws IOException{
-        Main.setRoot("informacion");
+    public void btnInfoUsuarioClick(ActionEvent event) throws IOException {
+
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar a infoCliente.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("informacion");
+        }
+    }
+
+    @FXML
+    void menuAccClick(ActionEvent event) throws IOException {
+        Main.setRoot("catalogoaccesorio");
+    }
+
+    @FXML
+    void menuRopaClick(ActionEvent event) throws IOException {
+        Main.setRoot("catalogoropa");
     }
 
 }
