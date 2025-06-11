@@ -19,6 +19,9 @@ public class Material {
         denominacion = "";
     }
 
+    public Material(String matCodigo, String matDenominacion) {
+    }
+
     public int getCodigo() {
         return codigo;
     }

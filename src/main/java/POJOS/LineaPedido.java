@@ -31,6 +31,6 @@ public class LineaPedido {
 
     @Override
     public String toString() {
-        return "LineaPedido{" + "cantidad=" + cantidad + ", articulo=" + articulo.mostrarInformacion() + '}';
+        return "LineaPedido{" + "cantidad=" + cantidad;
     }
 }

@@ -53,10 +53,6 @@ public class GafasDeSol extends Accesorio{
         this.anchura = anchura;
     }
 
-    @Override
-    public String mostrarInformacion() {
-        return this.toString();
-    }
 
     @Override
     public String toString() {

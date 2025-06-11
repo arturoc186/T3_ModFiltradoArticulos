@@ -1,50 +1,76 @@
 package Controladores;
 
+import DAO.RopaDAO;
 import DAO.Sesion;
+import POJOS.Ropa;
 import Principal.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class CatRopaController {
 
-    @FXML
-    private Button btnCerrarSesion;
+    @FXML private Button btnCerrarSesion;
+    @FXML private Button btnInfoUsuario;
+    @FXML private ImageView imgBtnLogin;
+    @FXML private ImageView imgBtnSettings;
+    @FXML private ImageView imgCarrito;
+    @FXML private MenuItem menuacc;
+    @FXML private MenuItem menulogin;
+    @FXML private MenuItem menureg;
+    @FXML private MenuItem menuropa;
+    @FXML private Text textBienvenida;
+    @FXML private Text textSaldo;
+
+    @FXML private TableView<Ropa> tableRopa;
+    @FXML private TableColumn<Ropa, Integer> colCodArt;
+    @FXML private TableColumn<Ropa, String> colNombre;
+    @FXML private TableColumn<Ropa, Float> colPrecio;
+    @FXML private TableColumn<Ropa, String> colMarca;
+    @FXML private TableColumn<Ropa, String> colDescripcion;
+    @FXML private TableColumn<Ropa, Boolean> colActivo;
+    @FXML private TableColumn<Ropa, String> colImagen;
+    @FXML private TableColumn<Ropa, String> colColor;
+    @FXML private TableColumn<Ropa, ?> colMaterial;
+    @FXML private TableColumn<Ropa, String> colTalla;
+    @FXML private TableColumn<Ropa, String> colCierre;
+
+    private RopaDAO ropaDAO = new RopaDAO();
 
     @FXML
-    private Button btnInfoUsuario;
+    public void initialize() {
+        colCodArt.setCellValueFactory(new PropertyValueFactory<>("codArt"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        colMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
+        colDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        colActivo.setCellValueFactory(new PropertyValueFactory<>("activo"));
+        colImagen.setCellValueFactory(new PropertyValueFactory<>("imagen"));
+        colColor.setCellValueFactory(new PropertyValueFactory<>("color"));
+        colMaterial.setCellValueFactory(new PropertyValueFactory<>("material"));
+        colTalla.setCellValueFactory(new PropertyValueFactory<>("tallaRopa"));
+        colCierre.setCellValueFactory(new PropertyValueFactory<>("tipoCierre"));
 
-    @FXML
-    private ImageView imgBtnLogin;
-
-    @FXML
-    private ImageView imgBtnSettings;
-
-    @FXML
-    private ImageView imgCarrito;
-
-    @FXML
-    private MenuItem menuacc;
-
-    @FXML
-    private MenuItem menulogin;
-
-    @FXML
-    private MenuItem menureg;
-
-    @FXML
-    private MenuItem menuropa;
-
-    @FXML
-    private Text textBienvenida;
-
-    @FXML
-    private Text textSaldo;
+        try {
+            List<Ropa> lista = ropaDAO.obtenerTodos();
+            ObservableList<Ropa> obs = FXCollections.observableArrayList(lista);
+            tableRopa.setItems(obs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void btnInfoUsuarioClick(ActionEvent event) throws IOException {

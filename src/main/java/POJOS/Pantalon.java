@@ -71,11 +71,4 @@ public class Pantalon extends Ropa {
         this.tipoPantalon = tipoPantalon;
     }
 
-    @Override
-    public String mostrarInformacion() {
-        return super.toString() + "\n" +
-                "Pantalón:\n" +
-                "\t Tiene bolsillos : " + isTieneBolsillos() + " " +
-                ", Tipo de pantalón : " + getTipoPantalon();
-    }
 }

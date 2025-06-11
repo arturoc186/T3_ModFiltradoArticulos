@@ -69,6 +69,10 @@ public abstract class Accesorio extends Articulo {
         this.esPersonalizado = esPersonalizado;
     }
 
+    public String getMaterialName() {
+        return getMaterial() != null ? getMaterial().getDenominacion() : "";
+    }
+
     @Override
     public String toString() {
         String art = "Articulo : " +
@@ -80,17 +84,15 @@ public abstract class Accesorio extends Articulo {
                 "\t activo : " + isActivo() + "\n" +
                 "\t imagen : " + getImagen() + "\n" +
                 "\t color  : " + getColor() + "\n" +
-                "\t " + getMaterial().toString() + "\n";
+                "\t material : " + getMaterialName() + "\n";
         art += "Accesorio :\n" +
-                "\t estilo :" + estilo + ' ' +
+                "\t estilo :" + estilo +
                 ", es Personalizado :" + esPersonalizado;
         return art;
     }
 
     @Override
     public float calculaPrecioVenta(float dto) {
-        float total;
-        total = (getPrecio() * (1 - (dto / 100f)));
-        return total;
+        return getPrecio() * (1 - (dto / 100f));
     }
 }

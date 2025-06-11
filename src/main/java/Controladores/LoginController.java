@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginController {
 
@@ -63,7 +64,7 @@ public class LoginController {
     private Text textSaldo;
 
     @FXML
-    void btnIniciarSesionClick(ActionEvent event) throws IOException {
+    void btnIniciarSesionClick(ActionEvent event) throws IOException, SQLException {
         String email    = fieldCorreo.getText();
         String password = fieldContrasena.getText();
 
@@ -81,7 +82,7 @@ public class LoginController {
 
     @FXML
     void hyperlinkOlvidarClick(ActionEvent event) {
-
+        Main.crearAlerta("Por favor","Contacta con un administrador.","");
     }
 
     @FXML

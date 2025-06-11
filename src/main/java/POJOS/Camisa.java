@@ -77,12 +77,4 @@ public class Camisa extends Ropa {
     public void setEstampada(boolean estampada) {
         this.estampada = estampada;
     }
-
-    @Override
-    public String mostrarInformacion() {
-        return super.toString() + "\n" +
-                "Camisa:\n" +
-                "\t Tipo de manga :" + getTipoDeManga() + " " +
-                ", Es estampada :" + isEstampada();
-    }
 }

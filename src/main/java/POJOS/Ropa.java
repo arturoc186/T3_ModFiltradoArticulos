@@ -1,6 +1,6 @@
 package POJOS;
 
-public abstract class Ropa extends Articulo {
+public class Ropa extends Articulo {
     // atributos de clase
     private static final float RECARGO = 0.08f;
 

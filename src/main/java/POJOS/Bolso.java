@@ -71,12 +71,5 @@ public class Bolso extends Accesorio {
         this.tipoCierreBolso = tipoCierreBolso;
     }
 
-    @Override
-    public String mostrarInformacion() {
-        return super.toString() + "\n" +
-                "Bolso:\n" +
-                "\t Capacidad :" + getCapacidad() + " " +
-                ", Tipo de cierre del bolso :" + getTipoCierreBolso();
-    }
 }
 

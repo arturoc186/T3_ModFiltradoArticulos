@@ -20,7 +20,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         DBUtils bbdd = new DBUtils();
         System.out.println("Comprobando conexión a la BD... · [0%]");
-        bbdd.conecta();
         System.out.println("Conexión establecida con Tienda_Ropa... · [100%]");
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Principal/main.fxml"));

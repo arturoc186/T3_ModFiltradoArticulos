@@ -166,9 +166,6 @@ public abstract class Articulo {
         this.material = material;
     }
 
-    // Métodos abstractos que deben ser implementados por las subclases
-    public abstract String mostrarInformacion();
-
     public abstract float calculaPrecioVenta(float dto);
 
     @Override

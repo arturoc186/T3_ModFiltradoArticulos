@@ -71,12 +71,4 @@ public class Zapatos extends Accesorio {
         this.tipoSuela = tipoSuela;
     }
 
-    @Override
-    public String mostrarInformacion() {
-        return super.toString() + "\n" +
-                "Zapatos :\n" +
-                "\t Tipo de suela :" + getTipoSuela() + " " +
-                ", Talla :" + getTallaZapato();
-    }
-
 }

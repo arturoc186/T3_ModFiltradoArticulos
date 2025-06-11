@@ -60,10 +60,4 @@ public class Chaqueta extends Ropa {
         this.impermeable = impermeable;
     }
 
-    @Override
-    public String mostrarInformacion() {
-        return super.toString() + "\n" +
-                "Chaqueta:\n" +
-                "\t impermeable :" + impermeable;
-    }
 }

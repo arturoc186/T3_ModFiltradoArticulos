@@ -38,7 +38,7 @@ public class ClienteDAO implements DAO<Cliente, String>{
         }
     }
 
-    public void login(Cliente cliente) throws IOException {
+    public void login(Cliente cliente) throws IOException, SQLException {
         Connection conn = DBUtils.getConexion();
 
         try (PreparedStatement ps = conn.prepareStatement(SQL_LOGIN)) {
