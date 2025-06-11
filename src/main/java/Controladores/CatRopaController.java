@@ -70,6 +70,8 @@ public class CatRopaController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        menuropa.setDisable(true);
     }
 
     @FXML

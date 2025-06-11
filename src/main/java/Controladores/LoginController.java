@@ -6,6 +6,7 @@ import POJOS.Cliente;
 import Principal.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.MenuItem;
@@ -14,9 +15,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class LoginController {
+public class LoginController implements Initializable {
 
     @FXML
     private Button btnCerrarSesion;
@@ -120,4 +123,8 @@ public class LoginController {
         Main.setRoot("catalogoropa");
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        menulogin.setDisable(true);
+    }
 }

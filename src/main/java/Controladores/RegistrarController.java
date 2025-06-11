@@ -6,6 +6,7 @@ import POJOS.Cliente;
 import Principal.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
@@ -15,10 +16,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-public class RegistrarController {
+public class RegistrarController implements Initializable {
 
     @FXML
     private Button btnCerrarSesion;
@@ -108,4 +111,8 @@ public class RegistrarController {
         Main.setRoot("catalogoropa");
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        menureg.setDisable(true);
+    }
 }

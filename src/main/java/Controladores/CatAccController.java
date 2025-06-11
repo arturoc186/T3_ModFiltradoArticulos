@@ -68,6 +68,8 @@ public class CatAccController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        menuacc.setDisable(true);
     }
 
     @FXML void btnInfoUsuarioClick(ActionEvent event) throws IOException {
