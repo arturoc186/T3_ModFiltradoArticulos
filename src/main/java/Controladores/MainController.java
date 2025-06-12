@@ -47,6 +47,9 @@ public class MainController {
     private Text textSaldo;
 
     @FXML
+    private Button btnCarrito;
+
+    @FXML
     void menuLoginClick(ActionEvent event) throws IOException {
         Main.setRoot("login");
     }
@@ -78,7 +81,6 @@ public class MainController {
         Main.setRoot("catalogoropa");
     }
 
-
     @FXML
     void menuAccClick(ActionEvent event) throws IOException {
         Main.setRoot("catalogoaccesorio");
@@ -88,4 +90,11 @@ public class MainController {
     void menuRopaClick(ActionEvent event) throws IOException {
         Main.setRoot("catalogoropa");
     }
+
+    @FXML
+    void btnCarritoClick(ActionEvent event) throws IOException{
+        Main.setRoot("carrito");
+    }
+
+
 }

@@ -99,6 +99,10 @@ public class CatAccController {
             Main.setRoot("informacion");
         }
     }
+
+    @FXML  private Button btnCarrito;
+    @FXML void btnCarritoClick(ActionEvent event) throws IOException{Main.setRoot("carrito");}
+
     @FXML void btnVolverClick(ActionEvent event) throws IOException { Main.setRoot("main"); }
     @FXML void menuLoginClick(ActionEvent event) throws IOException { Main.setRoot("login"); }
     @FXML void menuRegistroClick(ActionEvent event) throws IOException { Main.setRoot("registrar"); }

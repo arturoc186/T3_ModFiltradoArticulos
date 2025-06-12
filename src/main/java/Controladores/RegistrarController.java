@@ -106,6 +106,10 @@ public class RegistrarController implements Initializable {
         Main.setRoot("catalogoaccesorio");
     }
 
+    @FXML  private Button btnCarrito;
+    @FXML void btnCarritoClick(ActionEvent event) throws IOException{Main.setRoot("carrito");}
+
+
     @FXML
     void menuRopaClick(ActionEvent event) throws IOException {
         Main.setRoot("catalogoropa");

@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="468.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.MainController">
+<AnchorPane prefHeight="468.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.CarritoController">
    <children>
-      <MenuBar layoutX="13.0" layoutY="10.0" prefHeight="46.0" prefWidth="56.0">
+      <MenuBar layoutX="13.0" layoutY="13.0" prefHeight="26.0" prefWidth="15.0">
         <menus>
           <Menu mnemonicParsing="false">
             <items>
-              <MenuItem fx:id="menuLogin" mnemonicParsing="false" onAction="#menuLoginClick" text="Acceder" />
-                  <MenuItem fx:id="menuRegistro" mnemonicParsing="false" onAction="#menuRegistroClick" text="Registro" />
+              <MenuItem fx:id="menulogin" mnemonicParsing="false" onAction="#menuLoginClick" text="Acceder" />
+                  <MenuItem fx:id="menureg" mnemonicParsing="false" onAction="#menuRegistroClick" text="Registro" />
                   <MenuItem fx:id="menuropa" mnemonicParsing="false" onAction="#menuRopaClick" text="Ropa" />
                   <MenuItem fx:id="menuacc" mnemonicParsing="false" onAction="#menuAccClick" text="Accesorios" />
             </items>
                <graphic>
-                  <ImageView fitHeight="33.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="32.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/Hamburger_icon.svg.png" />
                      </image>
@@ -32,16 +37,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <ImageView fx:id="imgBtnRopa" fitHeight="312.0" fitWidth="256.0" layoutY="65.0" pickOnBounds="true">
-         <image>
-            <Image url="@../Images/ropa.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imgBtnAccesorios" fitHeight="312.0" fitWidth="247.0" layoutX="256.0" layoutY="65.0" pickOnBounds="true">
-         <image>
-            <Image url="@../Images/accesorios.png" />
-         </image>
-      </ImageView>
       <Text layoutX="33.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AYUDA">
          <font>
             <Font name="System Bold" size="9.0" />
@@ -120,13 +115,13 @@
          </image>
       </ImageView>
       <Text fx:id="textSaldo" layoutX="339.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tu saldo:" visible="false" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="135.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+      <Line endX="409.89288330078125" endY="-14.0" layoutX="91.0" layoutY="385.0" startX="-90.99998474121094" startY="-14.0" />
+      <Line endX="413.0000305175781" endY="-13.999984741210938" layoutX="90.0" layoutY="79.0" startX="-102.10709381103516" startY="-13.999984741210938" />
+      <ImageView fitHeight="32.0" fitWidth="200.0" layoutX="145.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/secondhand.png" />
          </image>
       </ImageView>
-      <Line endX="397.0" endY="1.52587890625E-5" layoutX="106.0" layoutY="65.0" startX="-106.0" startY="1.52587890625E-5" />
-      <Line endX="392.9999694824219" endY="1.0" layoutX="110.0" layoutY="376.0" startX="-106.0" startY="1.52587890625E-5" />
       <Button fx:id="btnInfoUsuario" layoutX="444.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnInfoUsuarioClick">
          <graphic>
             <ImageView fx:id="imgBtnLogin" fitHeight="53.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" x="2.0">
@@ -136,16 +131,52 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnRopa" layoutX="-2.0" layoutY="66.0" mnemonicParsing="false" onAction="#btnRopaClick" opacity="0.15" prefHeight="312.0" prefWidth="256.0" />
-      <Button fx:id="btnAccesorio" layoutX="252.0" layoutY="66.0" mnemonicParsing="false" onAction="#btnAccesorioClick" opacity="0.15" prefHeight="312.0" prefWidth="256.0" />
-      <Button fx:id="btnCarrito" layoutX="394.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnCarritoClick">
-         <graphic>
-            <ImageView fx:id="imgBtnLogin1" fitHeight="53.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" x="2.0">
-               <image>
-                  <Image url="@../Images/carrito.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+      <ImageView fitHeight="304.0" fitWidth="516.0" layoutX="-11.0" layoutY="65.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/loginFondo.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="18.0" layoutY="86.0" prefHeight="264.0" prefWidth="472.0" styleClass="login-container" stylesheets="@../CSS/Style.css">
+         <children>
+            <TableView fx:id="tableCarrito" layoutX="16.0" layoutY="17.0" prefHeight="200.0" prefWidth="300.0">
+              <columns>
+                  <TableColumn fx:id="colCodArt" prefWidth="75.0" text="Código" />
+                <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="colPrecio" prefWidth="75.0" text="Precio" />
+                  <TableColumn fx:id="colMarca" prefWidth="75.0" text="Marca" />
+              </columns>
+            </TableView>
+            <Separator layoutX="329.0" layoutY="17.0" orientation="VERTICAL" prefHeight="240.0" prefWidth="1.0" />
+            <Button fx:id="btnQuitar" layoutX="20.0" layoutY="225.0" mnemonicParsing="false" onAction="#btnQuitarClick" prefHeight="23.0" prefWidth="139.0" style="-fx-background-color: #660000; -fx-text-fill: white; -fx-font-weight: bold;" text="Eliminar artículo" />
+            <Button layoutX="341.0" layoutY="225.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="112.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Comprar" />
+            <Button layoutX="166.0" layoutY="225.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="154.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Seguir comprando" />
+            <Label layoutX="341.0" layoutY="23.0" text="Cliente:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelNombre" layoutX="341.0" layoutY="38.0" prefHeight="15.0" prefWidth="112.0" text="Nombre_cliente" />
+            <Label layoutX="341.0" layoutY="61.0" text="DNI:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelDNI" layoutX="341.0" layoutY="76.0" prefHeight="15.0" prefWidth="112.0" text="DNI_del_Cliente">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="340.0" layoutY="110.0" text="Número de Artículos:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelNArticulos" layoutX="341.0" layoutY="125.0" prefHeight="15.0" prefWidth="112.0" text="Tienes X artículos.">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

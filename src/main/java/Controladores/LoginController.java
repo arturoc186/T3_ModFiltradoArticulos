@@ -99,6 +99,9 @@ public class LoginController implements Initializable {
 
     }
 
+    @FXML  private Button btnCarrito;
+    @FXML void btnCarritoClick(ActionEvent event) throws IOException{Main.setRoot("carrito");}
+
     @FXML private Button btnInfoUsuario;
 
     @FXML

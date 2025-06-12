@@ -145,5 +145,14 @@
          </columns>
       </TableView>
       <Button fx:id="btnAnadir" layoutX="274.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnAnadirClick" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Añadir al Carrito" />
+      <Button fx:id="btnCarrito" layoutX="394.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnCarritoClick">
+         <graphic>
+            <ImageView fx:id="imgBtnLogin1" fitHeight="53.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" x="2.0">
+               <image>
+                  <Image url="@../Images/carrito.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

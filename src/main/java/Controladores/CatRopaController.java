@@ -92,6 +92,9 @@ public class CatRopaController {
         }
     }
 
+    @FXML  private Button btnCarrito;
+    @FXML void btnCarritoClick(ActionEvent event) throws IOException{Main.setRoot("carrito");}
+
     @FXML
     void btnInfoUsuarioClick(ActionEvent event) throws IOException {
         if (Sesion.getClienteActual() == null){

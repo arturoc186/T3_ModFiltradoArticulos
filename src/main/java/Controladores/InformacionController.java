@@ -127,6 +127,9 @@ public class InformacionController implements Initializable {
 
     @FXML private Button btnInfoUsuario;
 
+    @FXML  private Button btnCarrito;
+    @FXML void btnCarritoClick(ActionEvent event) throws IOException{Main.setRoot("carrito");}
+
     @FXML
     void btnInfoUsuarioClick(ActionEvent event) throws IOException{
         Main.setRoot("main");
