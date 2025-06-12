@@ -9,13 +9,13 @@ public class Pedido {
     private int numero;
     private LocalDate fecha;
     private String dirEnvio;
-    private Cliente cliente;
+    private String cliente;
     private String estado;
     private MetodoPago metodoPago;
     private ArrayList<LineaPedido> lineasPedido = new ArrayList<>();
 
 
-    public Pedido(int numero, LocalDate fecha, Cliente cliente,
+    public Pedido(int numero, LocalDate fecha, String cliente,
                   String estado, MetodoPago mp) {
         this.numero = numero;
         this.fecha = fecha;
@@ -63,11 +63,11 @@ public class Pedido {
         this.dirEnvio = dirEnvio;
     }
 
-    public Cliente getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
@@ -87,8 +87,8 @@ public class Pedido {
         return total;
     }
 
-    public MetodoPago getMetodoPago() {
-        return metodoPago;
+    public int getMetodoPago() {
+        return metodoPago.getCodigo();
     }
 
     public void setMetodoPago(MetodoPago metodoPago) {
@@ -158,7 +158,7 @@ public class Pedido {
     // mostrar todos los artículos de la lista
     public void mostrarPedido() {
         System.out.println("Listado del pedido.");
-        System.out.println("Cliente :" + cliente.info());
+        System.out.println("Cliente :" + cliente.lines());
         System.out.println("Número pedido :" + getNumero());
         System.out.println("Fecha :" + getFecha());
         System.out.println("Lineas del pedido:");
@@ -176,7 +176,6 @@ public class Pedido {
         return num;
     }
 
-    // Comprobar si la lista está vacía
     public boolean vaciaLista() {
         boolean vacia = false;
         if (lineasPedido.isEmpty()) {
@@ -185,7 +184,6 @@ public class Pedido {
         return vacia;
     }
 
-    // Vaciar la lista
     public boolean vaciarLista() {
         boolean vacia = false;
         if (lineasPedido != null) {
@@ -195,8 +193,6 @@ public class Pedido {
         return vacia;
     }
 
-    // devuelve la linea de la posición i
-    // null si no es posible
     public LineaPedido getLinea(int i) {
         LineaPedido a = null;
         if (i >= 0 && i <= numLineas() - 1) {
@@ -205,4 +201,6 @@ public class Pedido {
         return a;
     }
 
+    public void setMetodoPago(int mPago) {
+    }
 }

@@ -1,7 +1,6 @@
 package POJOS;
 
 import java.sql.Date;
-import java.util.Calendar;
 
 public abstract class Usuario {
 

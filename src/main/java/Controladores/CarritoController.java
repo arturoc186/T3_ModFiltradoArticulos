@@ -1,22 +1,22 @@
 package Controladores;
 
+import DAO.LineaPedidoDAO;
+import DAO.PedidoDAO;
 import DAO.Sesion;
-import POJOS.Articulo;
-import POJOS.Cliente;
+import POJOS.*;
 import Principal.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class CarritoController {
 
@@ -77,9 +77,25 @@ public class CarritoController {
         Main.setRoot("catalogoropa");
     }
 
+    @FXML private Button btnVolver;
+
+    @FXML
+    void btnVolverClick(ActionEvent event) throws IOException{
+        Main.setRoot("main");
+    }
+
+
+    @FXML private Label labelNombre;
+    @FXML private Label labelDNI;
+    @FXML private Label labelNArticulos;
+    @FXML private Label labelTotal;
 
     @FXML
     public void initialize() {
+        System.out.println("Método de pago del cliente: " + cliente.getM_pago());
+        System.out.println("Cliente (DNI): [" + cliente.getDni() + "]");
+
+
         System.out.println("Carrito tiene: " + Articulo.carrito.size() + " artículos.");
         carritoObservable = FXCollections.observableArrayList(Articulo.carrito);
 
@@ -88,9 +104,15 @@ public class CarritoController {
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         colMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
 
-        tableCarrito.setItems(carritoObservable);
-    }
+        float total = 0f;
+        for (Articulo art : carritoObservable) {total = total + art.getPrecio();}
 
+        tableCarrito.setItems(carritoObservable);
+        labelNombre.setText(cliente.getNombre() + " "+ cliente.getApellidos());
+        labelDNI.setText("ESP - " + cliente.getDni());
+        labelNArticulos.setText("Tienes " + Articulo.carrito.size() + " artículos");
+        labelTotal.setText(String.format("%.2f €", total));
+    }
 
     @FXML private Button btnQuitar;
 
@@ -108,5 +130,61 @@ public class CarritoController {
             Main.crearAlerta("Error", "Selección requerida", "Por favor selecciona un artículo.");
         }
     }
+
+    @FXML private ComboBox cbMetodoPago;
+
+    @FXML
+    void btnComprarClick(ActionEvent event) throws IOException {
+        if (Articulo.carrito.isEmpty()) {
+            Main.crearAlerta("Carrito vacío", "No hay artículos para comprar", "");
+            return;
+        }
+
+        Cliente cliente = Sesion.getClienteActual();
+        if (cliente == null) {
+            Main.crearAlerta("Sesión", "Debes iniciar sesión para comprar", "");
+            return;
+        }
+
+        int metodo_pago = (int) cbMetodoPago.getValue();
+        MetodoPago mp = new MetodoPago(metodo_pago, null);
+
+        Pedido pedido = new Pedido();
+        pedido.setFecha(LocalDate.now());
+        pedido.setDirEnvio(cliente.getDireccion());
+        pedido.setEstado("En proceso");
+        pedido.setMetodoPago(mp);
+        pedido.setCliente(cliente.getDni().trim());
+
+        System.out.println("Pedido.getCliente(): [" + pedido.getCliente() + "]");
+
+        try {
+            PedidoDAO pedidoDAO = new PedidoDAO();
+            int numeroPedido = pedidoDAO.insertarPedido(pedido);
+
+            if (numeroPedido > 0) {
+                LineaPedidoDAO lpDAO = new LineaPedidoDAO();
+
+                int cantidad = 1;
+
+                for (Articulo articulo : Articulo.carrito) {
+                    LineaPedido linea = new LineaPedido(cantidad, articulo);
+                    lpDAO.insertarLineaPedido(articulo.getCodArt(), numeroPedido);
+                }
+
+                Main.crearAlerta("¡Pedido realizado!", "Tu pedido #" + numeroPedido + " ha sido procesado.", "");
+                Articulo.carrito.clear();
+                Main.setRoot("main");
+            } else {
+                Main.crearAlerta("Error", "No se pudo registrar el pedido", "");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Main.crearAlerta("Error", "Fallo al guardar el pedido", e.getMessage());
+        }
+    }
+
+
 
 }
