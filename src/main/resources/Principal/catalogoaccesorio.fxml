@@ -128,7 +128,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnVolver" layoutX="23.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnVolverClick" prefHeight="26.0" prefWidth="457.0" style="-fx-background-color: #660000; -fx-text-fill: white; -fx-font-weight: bold;" text="Volver al Menú Principal" />
+      <Button fx:id="btnVolver" layoutX="23.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnVolverClick" prefHeight="26.0" prefWidth="238.0" style="-fx-background-color: #660000; -fx-text-fill: white; -fx-font-weight: bold;" text="Volver al Menú Principal" />
       <TableView fx:id="tableAccesorio" layoutX="14.0" layoutY="79.0" prefHeight="230.0" prefWidth="476.0">
          <columns>
             <TableColumn fx:id="colCodArt" text="Código" />
@@ -144,5 +144,6 @@
             <TableColumn fx:id="colEsPersonalizado" text="Personalizado" />
          </columns>
       </TableView>
+      <Button fx:id="btnAnadir" layoutX="274.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnAnadirClick" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Añadir al Carrito" />
    </children>
 </AnchorPane>

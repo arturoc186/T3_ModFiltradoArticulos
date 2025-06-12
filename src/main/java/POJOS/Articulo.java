@@ -1,5 +1,7 @@
 package POJOS;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Articulo {
@@ -13,6 +15,8 @@ public abstract class Articulo {
     private String imagen;
     private String color;
     private Material material;
+
+    public static final List<Articulo> carrito = new ArrayList<>();
 
     public Articulo(int codArt, String nombre, float precio, String marca,
                     String descripcion, boolean activo, String imagen,

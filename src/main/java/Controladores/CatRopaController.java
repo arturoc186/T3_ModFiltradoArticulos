@@ -2,6 +2,7 @@ package Controladores;
 
 import DAO.RopaDAO;
 import DAO.Sesion;
+import POJOS.Articulo;
 import POJOS.Ropa;
 import Principal.Main;
 import javafx.collections.FXCollections;
@@ -46,6 +47,7 @@ public class CatRopaController {
     @FXML private TableColumn<Ropa, ?> colMaterial;
     @FXML private TableColumn<Ropa, String> colTalla;
     @FXML private TableColumn<Ropa, String> colCierre;
+    TableColumn<Ropa, Void> colBoton = new TableColumn<>("Añadir");
 
     private RopaDAO ropaDAO = new RopaDAO();
 
@@ -72,6 +74,22 @@ public class CatRopaController {
         }
 
         menuropa.setDisable(true);
+
+    }
+
+    @FXML
+    void btnAnadirClick(ActionEvent event) {
+        Articulo seleccionado = tableRopa.getSelectionModel().getSelectedItem();
+        if (seleccionado != null) {
+            if (!Articulo.carrito.contains(seleccionado)) {
+                Articulo.carrito.add(seleccionado);
+                System.out.println("Añadido al carrito: " + seleccionado.getNombre());
+            } else {
+                Main.crearAlerta("Aviso", "Ya en el carrito", "Este artículo ya está añadido.");
+            }
+        } else {
+            Main.crearAlerta("Error", "Selección requerida", "Por favor selecciona un artículo.");
+        }
     }
 
     @FXML

@@ -128,21 +128,22 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnVolver" layoutX="28.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnVolverClick" prefHeight="26.0" prefWidth="457.0" style="-fx-background-color: #660000; -fx-text-fill: white; -fx-font-weight: bold;" text="Volver al Menú Principal" />
+      <Button fx:id="btnVolver" layoutX="15.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnVolverClick" prefHeight="26.0" prefWidth="240.0" style="-fx-background-color: #660000; -fx-text-fill: white; -fx-font-weight: bold;" text="Volver al Menú Principal" />
       <TableView fx:id="tableRopa" layoutX="15.0" layoutY="81.0" prefHeight="230.0" prefWidth="476.0">
         <columns>
-           <TableColumn fx:id="colCodArt" text="Código"/>
-           <TableColumn fx:id="colNombre" text="Nombre"/>
-           <TableColumn fx:id="colPrecio" text="Precio"/>
-           <TableColumn fx:id="colMarca" text="Marca"/>
-           <TableColumn fx:id="colDescripcion" text="Descripción"/>
-           <TableColumn fx:id="colActivo" text="Activo"/>
-           <TableColumn fx:id="colImagen" text="Imagen"/>
+           <TableColumn fx:id="colCodArt" text="Código" />
+           <TableColumn fx:id="colNombre" text="Nombre" />
+           <TableColumn fx:id="colPrecio" text="Precio" />
+           <TableColumn fx:id="colMarca" text="Marca" />
+           <TableColumn fx:id="colDescripcion" text="Descripción" />
+           <TableColumn fx:id="colActivo" text="Activo" />
+           <TableColumn fx:id="colImagen" text="Imagen" />
            <TableColumn fx:id="colColor" text="Color" />
-           <TableColumn fx:id="colMaterial" text="Material"/>
-           <TableColumn fx:id="colTalla" text="Talla"/>
-           <TableColumn fx:id="colCierre" text="Cierre"/>
+           <TableColumn fx:id="colMaterial" text="Material" />
+           <TableColumn fx:id="colTalla" text="Talla" />
+           <TableColumn fx:id="colCierre" text="Cierre" />
         </columns>
       </TableView>
+      <Button fx:id="btnAnadir" layoutX="264.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnAnadirClick" prefHeight="26.0" prefWidth="222.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Añadir al Carrito" />
    </children>
 </AnchorPane>

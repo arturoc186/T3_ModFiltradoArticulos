@@ -3,6 +3,7 @@ package Controladores;
 import DAO.AccesorioDAO;
 import DAO.Sesion;
 import POJOS.Accesorio;
+import POJOS.Articulo;
 import Principal.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,6 +32,7 @@ public class CatAccController {
     @FXML private MenuItem menuropa;
     @FXML private Text textBienvenida;
     @FXML private Text textSaldo;
+    @FXML private Button btnAnadir;
 
     @FXML private TableView<Accesorio> tableAccesorio;
     @FXML private TableColumn<Accesorio, Integer> colCodArt;
@@ -44,6 +46,7 @@ public class CatAccController {
     @FXML private TableColumn<Accesorio, String> colMaterial;
     @FXML private TableColumn<Accesorio, String> colEstilo;
     @FXML private TableColumn<Accesorio, Boolean> colEsPersonalizado;
+    TableColumn<Accesorio, Void> colBoton = new TableColumn<>("Añadir");
 
     private final AccesorioDAO accesorioDAO = new AccesorioDAO();
 
@@ -71,6 +74,22 @@ public class CatAccController {
 
         menuacc.setDisable(true);
     }
+
+    @FXML
+    void btnAnadirClick(ActionEvent event) {
+        Articulo seleccionado = tableAccesorio.getSelectionModel().getSelectedItem();
+        if (seleccionado != null) {
+            if (!Articulo.carrito.contains(seleccionado)) {
+                Articulo.carrito.add(seleccionado);
+                System.out.println("Añadido al carrito: " + seleccionado.getNombre());
+            } else {
+                Main.crearAlerta("Aviso", "Ya en el carrito", "Este artículo ya está añadido.");
+            }
+        } else {
+            Main.crearAlerta("Error", "Selección requerida", "Por favor selecciona un artículo.");
+        }
+    }
+
 
     @FXML void btnInfoUsuarioClick(ActionEvent event) throws IOException {
         if (Sesion.getClienteActual() == null) {
