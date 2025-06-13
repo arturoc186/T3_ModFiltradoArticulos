@@ -34,6 +34,20 @@ public class CatAccController {
     @FXML private Text textSaldo;
     @FXML private Button btnAnadir;
 
+    @FXML
+    private MenuItem menuHistorial;
+
+    @FXML
+    void menuHistorialClick(ActionEvent event) throws IOException{
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar al Historial.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("historial");
+        }
+    }
+
     @FXML private TableView<Accesorio> tableAccesorio;
     @FXML private TableColumn<Accesorio, Integer> colCodArt;
     @FXML private TableColumn<Accesorio, String> colNombre;

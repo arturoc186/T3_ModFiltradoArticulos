@@ -85,6 +85,20 @@ public class InformacionController implements Initializable {
     @FXML
     private Text textSaldo;
 
+    @FXML
+    private MenuItem menuHistorial;
+
+    @FXML
+    void menuHistorialClick(ActionEvent event) throws IOException{
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar al Historial.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("historial");
+        }
+    }
+
     /*"UPDATE CLIENTE SET telefono = ?, f_nacimiento = ? direccion = ?, email = ?, dir_envio= ? WHERE DNI = ?"*/
     @FXML
     void btnActualizarClick(ActionEvent event) throws SQLException {
@@ -128,7 +142,15 @@ public class InformacionController implements Initializable {
     @FXML private Button btnInfoUsuario;
 
     @FXML  private Button btnCarrito;
-    @FXML void btnCarritoClick(ActionEvent event) throws IOException{Main.setRoot("carrito");}
+    @FXML void btnCarritoClick(ActionEvent event) throws IOException{
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar al carrito.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("carrito");
+        }
+    }
 
     @FXML
     void btnInfoUsuarioClick(ActionEvent event) throws IOException{

@@ -23,6 +23,7 @@
                   <MenuItem fx:id="menureg" mnemonicParsing="false" onAction="#menuRegistroClick" text="Registro" />
                   <MenuItem fx:id="menuropa" mnemonicParsing="false" onAction="#menuRopaClick" text="Ropa" />
                   <MenuItem fx:id="menuacc" mnemonicParsing="false" onAction="#menuAccClick" text="Accesorios" />
+                  <MenuItem fx:id="menuHistorial" mnemonicParsing="false" onAction="#menuHistorialClick" text="Historial" />
             </items>
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">

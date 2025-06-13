@@ -67,6 +67,20 @@ public class LoginController implements Initializable {
     private Text textSaldo;
 
     @FXML
+    private MenuItem menuHistorial;
+
+    @FXML
+    void menuHistorialClick(ActionEvent event) throws IOException{
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar al Historial.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("historial");
+        }
+    }
+
+    @FXML
     void btnIniciarSesionClick(ActionEvent event) throws IOException, SQLException {
         String email    = fieldCorreo.getText();
         String password = fieldContrasena.getText();
@@ -100,7 +114,15 @@ public class LoginController implements Initializable {
     }
 
     @FXML  private Button btnCarrito;
-    @FXML void btnCarritoClick(ActionEvent event) throws IOException{Main.setRoot("carrito");}
+    @FXML void btnCarritoClick(ActionEvent event) throws IOException{
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar al carrito.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("carrito");
+        }
+    }
 
     @FXML private Button btnInfoUsuario;
 

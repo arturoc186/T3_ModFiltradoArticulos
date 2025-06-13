@@ -32,9 +32,26 @@ import java.util.List;
         @FXML private TableColumn<LineaPedido, String> colArticulo;
     @FXML private TableColumn<LineaPedido, Float> colPrecio;
 
+        @FXML
+        private MenuItem menuHistorial;
+
+        @FXML
+        void menuHistorialClick(ActionEvent event) throws IOException{
+            if (Sesion.getClienteActual() == null){
+                System.out.println("Un cliente sin cuenta ha intentado entrar al Historial.");
+                Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+                Main.setRoot("main");
+            } else {
+                Main.setRoot("historial");
+            }
+        }
+
+
     @FXML
     public void initialize() {
         Cliente cliente = Sesion.getClienteActual();
+        menuHistorial.setDisable(true);
+
         if (cliente == null) return;
 
         colNumero.setCellValueFactory(p -> new SimpleStringProperty(String.valueOf(p.getValue().getNumero())).length().asObject());
@@ -92,7 +109,13 @@ import java.util.List;
 
     @FXML
     void btnCarritoClick(ActionEvent event) throws IOException{
-        Main.setRoot("carrito");
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar al carrito.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("carrito");
+        }
     }
 
     @FXML

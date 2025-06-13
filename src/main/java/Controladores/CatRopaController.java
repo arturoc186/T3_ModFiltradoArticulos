@@ -35,6 +35,21 @@ public class CatRopaController {
     @FXML private Text textBienvenida;
     @FXML private Text textSaldo;
 
+    @FXML
+    private MenuItem menuHistorial;
+
+    @FXML
+    void menuHistorialClick(ActionEvent event) throws IOException{
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar al Historial.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("historial");
+        }
+    }
+
+
     @FXML private TableView<Ropa> tableRopa;
     @FXML private TableColumn<Ropa, Integer> colCodArt;
     @FXML private TableColumn<Ropa, String> colNombre;
@@ -47,7 +62,6 @@ public class CatRopaController {
     @FXML private TableColumn<Ropa, ?> colMaterial;
     @FXML private TableColumn<Ropa, String> colTalla;
     @FXML private TableColumn<Ropa, String> colCierre;
-    TableColumn<Ropa, Void> colBoton = new TableColumn<>("Añadir");
 
     private RopaDAO ropaDAO = new RopaDAO();
 
@@ -93,7 +107,15 @@ public class CatRopaController {
     }
 
     @FXML  private Button btnCarrito;
-    @FXML void btnCarritoClick(ActionEvent event) throws IOException{Main.setRoot("carrito");}
+    @FXML void btnCarritoClick(ActionEvent event) throws IOException{
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar al carrito.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("carrito");
+        }
+    }
 
     @FXML
     void btnInfoUsuarioClick(ActionEvent event) throws IOException {

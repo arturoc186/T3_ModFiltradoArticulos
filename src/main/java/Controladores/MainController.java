@@ -40,7 +40,13 @@ public class MainController {
 
     @FXML
     void menuHistorialClick(ActionEvent event) throws IOException{
-        Main.setRoot("historial");
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar al Historial.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("historial");
+        }
     }
 
     @FXML
@@ -102,7 +108,13 @@ public class MainController {
 
     @FXML
     void btnCarritoClick(ActionEvent event) throws IOException{
-        Main.setRoot("carrito");
+        if (Sesion.getClienteActual() == null){
+            System.out.println("Un cliente sin cuenta ha intentado entrar a carrito.");
+            Main.crearAlerta("Error","Tenemos un error con tu sesión","Por favor, inicia sesión en tu cuenta o regístrate para entrar aquí.");
+            Main.setRoot("main");
+        } else {
+            Main.setRoot("carrito");
+        }
     }
 
 
