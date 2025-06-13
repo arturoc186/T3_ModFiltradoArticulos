@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class MainController {
 
@@ -33,6 +34,14 @@ public class MainController {
 
     @FXML
     private MenuItem menuLogin;
+
+    @FXML
+    private MenuItem menuHistorial;
+
+    @FXML
+    void menuHistorialClick(ActionEvent event) throws IOException{
+        Main.setRoot("historial");
+    }
 
     @FXML
     private MenuItem menuRegistro;

@@ -32,6 +32,14 @@ public abstract class Articulo {
         this.material = material;
     }
 
+    public Articulo(int codArt, String nombre, float precio, String marca) {
+        this.codArt = codArt;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.marca = marca;
+    }
+
+
     public Articulo(int codArt, String nombre, float precio, String marca, String descripcion) {
         this.codArt = codArt;
         this.nombre = nombre;

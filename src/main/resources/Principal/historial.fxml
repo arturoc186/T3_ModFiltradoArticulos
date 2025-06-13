@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="468.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.MainController">
+<AnchorPane prefHeight="468.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.HistorialController">
    <children>
       <MenuBar layoutX="13.0" layoutY="10.0" prefHeight="46.0" prefWidth="56.0">
         <menus>
@@ -21,7 +24,6 @@
                   <MenuItem fx:id="menuRegistro" mnemonicParsing="false" onAction="#menuRegistroClick" text="Registro" />
                   <MenuItem fx:id="menuropa" mnemonicParsing="false" onAction="#menuRopaClick" text="Ropa" />
                   <MenuItem fx:id="menuacc" mnemonicParsing="false" onAction="#menuAccClick" text="Accesorios" />
-                  <MenuItem fx:id="menuHistorial" mnemonicParsing="false" onAction="#menuHistorialClick" text="Historial" />
             </items>
                <graphic>
                   <ImageView fitHeight="33.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
@@ -33,16 +35,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <ImageView fx:id="imgBtnRopa" fitHeight="312.0" fitWidth="256.0" layoutY="65.0" pickOnBounds="true">
-         <image>
-            <Image url="@../Images/ropa.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imgBtnAccesorios" fitHeight="312.0" fitWidth="247.0" layoutX="256.0" layoutY="65.0" pickOnBounds="true">
-         <image>
-            <Image url="@../Images/accesorios.png" />
-         </image>
-      </ImageView>
       <Text layoutX="33.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AYUDA">
          <font>
             <Font name="System Bold" size="9.0" />
@@ -137,8 +129,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnRopa" layoutX="-2.0" layoutY="66.0" mnemonicParsing="false" onAction="#btnRopaClick" opacity="0.15" prefHeight="312.0" prefWidth="256.0" />
-      <Button fx:id="btnAccesorio" layoutX="252.0" layoutY="66.0" mnemonicParsing="false" onAction="#btnAccesorioClick" opacity="0.15" prefHeight="312.0" prefWidth="256.0" />
       <Button fx:id="btnCarrito" layoutX="394.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnCarritoClick">
          <graphic>
             <ImageView fx:id="imgBtnLogin1" fitHeight="53.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" x="2.0">
@@ -148,5 +138,25 @@
             </ImageView>
          </graphic>
       </Button>
+      <TableView fx:id="tablaPedidos" layoutX="23.0" layoutY="277.0" prefHeight="82.0" prefWidth="463.0">
+        <columns>
+          <TableColumn fx:id="colNumero" prefWidth="75.0" text="C1" />
+          <TableColumn fx:id="colFecha" prefWidth="75.0" text="C2" />
+            <TableColumn fx:id="colEstado" prefWidth="75.0" text="C2" />
+            <TableColumn fx:id="colTotal" prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tablaLineas" layoutX="22.0" layoutY="129.0" prefHeight="138.0" prefWidth="463.0">
+         <columns>
+            <TableColumn fx:id="colArticulo" prefWidth="75.0" text="C1" />
+            <TableColumn fx:id="colPrecio" prefWidth="75.0" text="C2" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnVolver" layoutX="378.0" layoutY="89.0" mnemonicParsing="false" onAction="#btnVolverClick" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: BLACK; -fx-text-fill: white; -fx-font-weight: bold;" text="Volver al Menú" />
+      <Label layoutX="22.0" layoutY="89.0" prefHeight="26.0" prefWidth="342.0" text="Pedidos de Nombre, Apellido1 Apellido2">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
