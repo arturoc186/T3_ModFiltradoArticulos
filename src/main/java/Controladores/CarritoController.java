@@ -15,7 +15,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class CarritoController {
@@ -104,13 +103,10 @@ public class CarritoController {
     @FXML private Label labelNArticulos;
     @FXML private Label labelTotal;
 
+    float total = 0f;
+
     @FXML
     public void initialize() {
-        System.out.println("Método de pago del cliente: " + cliente.getM_pago());
-        System.out.println("Cliente (DNI): [" + cliente.getDni() + "]");
-
-
-        System.out.println("Carrito tiene: " + Articulo.carrito.size() + " artículos.");
         carritoObservable = FXCollections.observableArrayList(Articulo.carrito);
 
         colCodArt.setCellValueFactory(new PropertyValueFactory<>("codArt"));
@@ -118,15 +114,22 @@ public class CarritoController {
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         colMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
 
-        float total = 0f;
-        for (Articulo art : carritoObservable) {total = total + art.getPrecio();}
-
         tableCarrito.setItems(carritoObservable);
+
         labelNombre.setText(cliente.getNombre() + " "+ cliente.getApellidos());
         labelDNI.setText("ESP - " + cliente.getDni());
         labelNArticulos.setText("Tienes " + Articulo.carrito.size() + " artículos");
-        labelTotal.setText(String.format("%.2f €", total));
+
+        refrescarTotal();
     }
+
+
+    public void refrescarTotal() {
+        float nuevoTotal = 0f;
+        for (Articulo art : carritoObservable) {nuevoTotal += art.getPrecio();}
+        labelTotal.setText(String.format("%.2f €", nuevoTotal));
+    }
+
 
     @FXML private Button btnQuitar;
 
@@ -139,6 +142,8 @@ public class CarritoController {
                 Articulo.carrito.remove(seleccionado);
                 carritoObservable.remove(seleccionado);
                 System.out.println("Se ha eliminado del carrito: " + seleccionado.getNombre());
+
+                refrescarTotal();
             }
         } else {
             Main.crearAlerta("Error", "Selección requerida", "Por favor selecciona un artículo.");

@@ -22,6 +22,9 @@ import java.util.List;
 
     public class HistorialController {
 
+        @FXML private Label lblBienvenida;
+
+
         @FXML private TableView<Pedido> tablaPedidos;
         @FXML private TableColumn<Pedido, Integer> colNumero;
         @FXML private TableColumn<Pedido, LocalDate> colFecha;
@@ -47,10 +50,13 @@ import java.util.List;
         }
 
 
+
+
     @FXML
     public void initialize() {
         Cliente cliente = Sesion.getClienteActual();
         menuHistorial.setDisable(true);
+        lblBienvenida.setText("Historial de:" +cliente.getNombre() + cliente.getApellidos());
 
         if (cliente == null) return;
 

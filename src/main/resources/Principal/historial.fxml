@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -139,25 +140,26 @@
             </ImageView>
          </graphic>
       </Button>
-      <TableView fx:id="tablaPedidos" layoutX="23.0" layoutY="277.0" prefHeight="82.0" prefWidth="463.0">
+      <TableView fx:id="tablaPedidos" layoutX="21.0" layoutY="129.0" prefHeight="105.0" prefWidth="463.0" stylesheets="@../CSS/Style.css">
         <columns>
-          <TableColumn fx:id="colNumero" prefWidth="75.0" text="C1" />
-          <TableColumn fx:id="colFecha" prefWidth="75.0" text="C2" />
-            <TableColumn fx:id="colEstado" prefWidth="75.0" text="C2" />
-            <TableColumn fx:id="colTotal" prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colNumero" prefWidth="75.0" text="NPedido" />
+          <TableColumn fx:id="colFecha" prefWidth="150.0" text="Fecha de Creación" />
+            <TableColumn fx:id="colEstado" prefWidth="120.0" text="Estado" />
+            <TableColumn fx:id="colTotal" prefWidth="120.0" text="Total a Pagar" />
         </columns>
       </TableView>
-      <TableView fx:id="tablaLineas" layoutX="22.0" layoutY="129.0" prefHeight="138.0" prefWidth="463.0">
+      <TableView fx:id="tablaLineas" layoutX="21.0" layoutY="242.0" prefHeight="118.0" prefWidth="304.0" stylesheets="@../CSS/Style.css">
          <columns>
-            <TableColumn fx:id="colArticulo" prefWidth="75.0" text="C1" />
-            <TableColumn fx:id="colPrecio" prefWidth="75.0" text="C2" />
+            <TableColumn fx:id="colArticulo" prefWidth="200.0" text="Artículo del Pedido " />
+            <TableColumn fx:id="colPrecio" prefWidth="100.0" text="Precio" />
          </columns>
       </TableView>
       <Button fx:id="btnVolver" layoutX="378.0" layoutY="89.0" mnemonicParsing="false" onAction="#btnVolverClick" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: BLACK; -fx-text-fill: white; -fx-font-weight: bold;" text="Volver al Menú" />
-      <Label layoutX="22.0" layoutY="89.0" prefHeight="26.0" prefWidth="342.0" text="Pedidos de Nombre, Apellido1 Apellido2">
+      <Label fx:id="lblBienvenida" layoutX="22.0" layoutY="89.0" prefHeight="26.0" prefWidth="342.0" text="Pedidos de Nombre, Apellido1 Apellido2">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
+      <TextArea layoutX="330.0" layoutY="242.0" prefHeight="118.0" prefWidth="154.0" text="Selecciona en la tabla&#10;superior alguno de los&#10;pedidos disponibles. En&#10;la tabla de abajo saldrán&#10;las líneas de dicho pedido." />
    </children>
 </AnchorPane>
