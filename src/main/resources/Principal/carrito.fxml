@@ -19,6 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import java.lang.String?>
 <AnchorPane prefHeight="468.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.CarritoController">
    <children>
       <MenuBar layoutX="13.0" layoutY="13.0" prefHeight="26.0" prefWidth="15.0">
@@ -194,9 +195,10 @@
             <ComboBox fx:id="cbMetodoPago" layoutX="340.0" layoutY="140.0" prefHeight="23.0" prefWidth="112.0">
                <items>
                   <FXCollections fx:factory="observableArrayList">
-                     <Integer fx:value="1" />
-                     <Integer fx:value="2" />
-                     <Integer fx:value="3" />
+                     <String fx:value="1 · Pago en Efectivo" />
+                     <String fx:value="2 · Tarjeta de Crédito " />
+                     <String fx:value="3 · PayPal" />
+                     <String fx:value="4 · Pago con Bizum" />
                   </FXCollections>
                </items>
             </ComboBox>

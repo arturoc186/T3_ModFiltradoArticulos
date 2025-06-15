@@ -165,7 +165,9 @@ public class CarritoController {
             return;
         }
 
-        int metodo_pago = (int) cbMetodoPago.getValue();
+        String seleccionado = (String) cbMetodoPago.getValue();
+        int metodo_pago = Character.getNumericValue(seleccionado.charAt(0));
+
         MetodoPago mp = new MetodoPago(metodo_pago, null);
 
         Pedido pedido = new Pedido();

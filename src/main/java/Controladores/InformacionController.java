@@ -138,6 +138,17 @@ public class InformacionController implements Initializable {
         Main.setRoot("registrar");
     }
 
+    @FXML
+    void menuRopaClick(ActionEvent event) throws IOException{
+        Main.setRoot("catalogoropa");
+    }
+
+    @FXML
+    void menuAccesorioClick(ActionEvent event) throws IOException{
+        Main.setRoot("catalogoaccesorio");
+    }
+
+
 
     @FXML private Button btnInfoUsuario;
 
