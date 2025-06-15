@@ -1,4 +1,4 @@
-# 📝 Tarea 2. Mod. Pedido, LPedido, Historial y Carrito
+# 📝 Tarea 3. Mod. Filtrado de Artículos 
 
 El proyecto está dividido en los siguientes commits.
 

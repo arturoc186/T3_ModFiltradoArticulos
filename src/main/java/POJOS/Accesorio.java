@@ -90,9 +90,4 @@ public abstract class Accesorio extends Articulo {
                 ", es Personalizado :" + esPersonalizado;
         return art;
     }
-
-    @Override
-    public float calculaPrecioVenta(float dto) {
-        return getPrecio() * (1 - (dto / 100f));
-    }
 }

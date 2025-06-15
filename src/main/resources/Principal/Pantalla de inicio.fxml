@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="944.0" stylesheets="@assets/css/Style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="228.0" layoutY="28.0" prefHeight="527.0" prefWidth="488.0" styleClass="login-container" stylesheets="@assets/css/Style.css">
+         <children>
+            <TextField layoutX="135.0" layoutY="146.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="219.0" promptText="Introduzca su usuario:" stylesheets="@assets/css/Style.css">
+               <styleClass>
+                  <String fx:value="password-field" />
+                  <String fx:value="text-field" />
+               </styleClass>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </TextField>
+            <TextField layoutX="135.0" layoutY="241.0" prefHeight="25.0" prefWidth="219.0" promptText="Contraseña:" styleClass="password-field" stylesheets="@assets/css/Style.css">
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </TextField>
+            <Button layoutX="135.0" layoutY="294.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="219.0" styleClass="loginButton" stylesheets="@assets/css/Style.css" text="Login" textFill="WHITE" />
+            <Hyperlink layoutX="389.0" layoutY="475.0" text="Pincha aquí" textFill="#73391a">
+               <font>
+                  <Font size="14.0" />
+               </font></Hyperlink>
+            <Label layoutX="234.0" layoutY="478.0" prefHeight="20.0" prefWidth="177.0" text="Olvidaste tu contraseña?" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="135.0" layoutY="109.0" prefHeight="37.0" prefWidth="219.0" styleClass="labelPass" stylesheets="@assets/css/Style.css" text="Usuario:" />
+            <Label layoutX="135.0" layoutY="204.0" prefHeight="37.0" prefWidth="219.0" styleClass="labelPass" stylesheets="@assets/css/Style.css" text="Contraseña:" />
+            <Label alignment="TOP_CENTER" layoutX="112.0" layoutY="343.0" prefHeight="37.0" prefWidth="266.0" styleClass="labelPass" stylesheets="@assets/css/Style.css" text="Aún no tienes cuenta ?" />
+            <Button layoutX="133.0" layoutY="379.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="219.0" styleClass="loginButton" stylesheets="@assets/css/Style.css" text="Registrate" />
+            <ImageView fitHeight="60.0" fitWidth="293.0" layoutX="96.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/images/secondhand.png" />
+               </image>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="SW_RESIZE" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Pane>
+      <Pane layoutY="575.0" prefHeight="152.0" prefWidth="944.0" styleClass="BarPane" stylesheets="@assets/css/Style.css">
+         <children>
+            <Separator layoutX="637.0" layoutY="126.0" orientation="VERTICAL" prefHeight="17.0" prefWidth="6.0" />
+            <Label layoutX="99.0" layoutY="21.0" prefHeight="16.0" prefWidth="124.0" styleClass="labelBar" stylesheets="@assets/css/Style.css" text="AYUDA" />
+            <Hyperlink layoutX="93.0" layoutY="44.0" text="Preguntas frecuentes." textFill="#dc7ebd">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="93.0" layoutY="110.0" text="Hyperlink" textFill="#dc7ebd">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="93.0" layoutY="87.0" text="Devoluciones" textFill="#dc7ebd">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="93.0" layoutY="64.0" text="Estado de mi pedido" textFill="#dc7ebd">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Hyperlink>
+            <Separator layoutX="504.0" layoutY="124.0" orientation="VERTICAL" prefHeight="17.0" prefWidth="0.0" />
+            <Separator layoutX="341.0" layoutY="124.0" orientation="VERTICAL" prefHeight="17.0" prefWidth="0.0" />
+            <Hyperlink layoutX="212.0" layoutY="121.0" text="Política de privacidad" textFill="#dc7ebd" />
+            <Hyperlink layoutX="347.0" layoutY="121.0" text="Condiciones de devolución" textFill="#dc7ebd" />
+            <Hyperlink layoutX="517.0" layoutY="120.0" text="Políticas de cookies" textFill="#dc7ebd" />
+            <Hyperlink layoutX="650.0" layoutY="120.0" text="Preferencias de cookies" textFill="#dc7ebd" />
+            <Label layoutX="347.0" layoutY="41.0" prefHeight="27.0" prefWidth="328.0" styleClass="textBar" stylesheets="@assets/css/Style.css" text="SECONDHAND">
+               <font>
+                  <Font name="Constantia" size="12.0" />
+               </font></Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="730.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/images/logos-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="781.0" layoutY="29.0" styleClass="labelBar" stylesheets="@Style.css" text="SIGUENOS" />
+         </children>
+      </Pane>
+   </children>
+   <styleClass>
+      <String fx:value="login-container" />
+      <String fx:value="container" />
+   </styleClass>
+</AnchorPane>

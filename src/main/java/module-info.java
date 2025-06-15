@@ -3,6 +3,7 @@ module com.iescamp.tiendaropa {
     requires javafx.fxml;
     requires java.desktop;
     requires java.sql;
+    requires jdk.jfr;
 
 
     opens Principal to javafx.fxml;

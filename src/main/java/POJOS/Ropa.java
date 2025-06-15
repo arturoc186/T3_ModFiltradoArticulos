@@ -96,12 +96,4 @@ public class Ropa extends Articulo {
                         "\t talla :" + tallaRopa + ' ' + ", tipo de cierre :'" + tipoCierre;
         return art;
     }
-
-    @Override
-    public float calculaPrecioVenta(float dto) {
-        float total;
-        total = ((getPrecio() * (1 + RECARGO)) * (1 - (dto / 100f)));
-        return total;
-    }
-
 }

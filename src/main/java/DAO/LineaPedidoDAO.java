@@ -44,10 +44,6 @@ public class LineaPedidoDAO {
                         rs.getFloat("precio"),
                         rs.getString("marca")
                 ) {
-                    @Override
-                    public float calculaPrecioVenta(float dto) {
-                        return 0;
-                    }
                 };
                 lista.add(new LineaPedido(1, art));
             }

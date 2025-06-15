@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class Articulo {
+public class Articulo {
     // atributos
     private int codArt;
     private String nombre;
@@ -177,8 +177,6 @@ public abstract class Articulo {
     public void setMaterial(Material material) {
         this.material = material;
     }
-
-    public abstract float calculaPrecioVenta(float dto);
 
     @Override
     public String toString() {
