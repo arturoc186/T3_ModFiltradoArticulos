@@ -110,7 +110,7 @@ public class Articulo {
         return codArt;
     }
 
-    public void setcodArt(int codArt) {
+    public void setCodArt(int codArt) {
         this.codArt = codArt;
     }
 

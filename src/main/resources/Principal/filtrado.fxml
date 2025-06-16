@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="468.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.CarritoController">
+<AnchorPane prefHeight="468.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.FiltradoController">
    <children>
       <MenuBar layoutX="13.0" layoutY="13.0" prefHeight="26.0" prefWidth="15.0">
          <menus>
@@ -142,13 +142,12 @@
       </ImageView>
       <Pane layoutX="223.0" layoutY="76.0" prefHeight="239.0" prefWidth="267.0" styleClass="login-container" stylesheets="@../CSS/Style.css">
          <children>
-            <TableView fx:id="tableCarrito" layoutX="12.0" layoutY="14.0" prefHeight="224.0" prefWidth="243.0">
-               <columns>
-                  <TableColumn fx:id="colCodArt" prefWidth="75.0" text="Código" />
-                  <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
-                  <TableColumn fx:id="colPrecio" prefWidth="75.0" text="Precio" />
-                  <TableColumn fx:id="colMarca" prefWidth="75.0" text="Marca" />
-               </columns>
+            <TableView fx:id="tablaResultados" layoutX="12.0" layoutY="14.0" prefHeight="224.0" prefWidth="243.0">
+                  <columns>
+                     <TableColumn fx:id="colCodigo" text="Código" />
+                     <TableColumn fx:id="colNombre" text="Nombre" />
+                     <TableColumn fx:id="colPrecio" text="Precio" />
+                  </columns>
             </TableView>
          </children>
       </Pane>
@@ -159,21 +158,21 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <CheckBox layoutX="29.0" layoutY="31.0" mnemonicParsing="false" text="Filtrar por Tipo Artículo." />
-            <CheckBox layoutX="29.0" layoutY="51.0" mnemonicParsing="false" text="Filtrar por Rango Precio." />
-            <CheckBox layoutX="29.0" layoutY="71.0" mnemonicParsing="false" text="Filtrar por Mat. Artículo." />
+            <CheckBox fx:id="chkTipo" layoutX="29.0" layoutY="31.0" mnemonicParsing="false" text="Filtrar por Tipo Artículo." />
+            <CheckBox fx:id="chkPrecio" layoutX="29.0" layoutY="51.0" mnemonicParsing="false" text="Filtrar por Rango Precio." />
+            <CheckBox fx:id="chkMaterial" layoutX="29.0" layoutY="71.0" mnemonicParsing="false" text="Filtrar por Mat. Artículo." />
          </children>
       </Pane>
       <Pane layoutX="15.0" layoutY="184.0" prefHeight="129.0" prefWidth="200.0" styleClass="login-container" stylesheets="@../CSS/Style.css">
          <children>
-            <ComboBox layoutX="69.0" layoutY="12.0" prefHeight="33.0" prefWidth="117.0" />
-            <ComboBox layoutX="69.0" layoutY="90.0" prefHeight="33.0" prefWidth="117.0" />
+            <ComboBox fx:id="comboTipo" layoutX="69.0" layoutY="12.0" prefHeight="33.0" prefWidth="117.0" />
+            <ComboBox fx:id="comboMaterial" layoutX="69.0" layoutY="90.0" prefHeight="33.0" prefWidth="117.0" />
+            <TextField fx:id="txtMinPrecio" layoutX="69.0" layoutY="54.0" prefHeight="31.0" prefWidth="46.0" />
+            <TextField fx:id="txtMaxPrecio" layoutX="140.0" layoutY="54.0" prefHeight="31.0" prefWidth="46.0" />
             <Label layoutX="15.0" layoutY="14.0" text="Artículo:" />
             <Label layoutX="14.0" layoutY="92.0" text="Material:" />
             <Label layoutX="20.0" layoutY="47.0" text="Precio&#10;entre" />
-            <TextField layoutX="69.0" layoutY="54.0" minHeight="24.0" prefHeight="31.0" prefWidth="46.0" text="1" />
             <Label layoutX="125.0" layoutY="62.0" text="y" />
-            <TextField layoutX="140.0" layoutY="54.0" minHeight="24.0" prefHeight="31.0" prefWidth="46.0" text="1" />
          </children>
       </Pane>
       <Pane layoutX="10.0" layoutY="328.0" prefHeight="33.0" prefWidth="480.0" styleClass="login-container" stylesheets="@../CSS/Style.css">
@@ -183,7 +182,8 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button layoutX="240.0" layoutY="5.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="229.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Ver los Artículos Filtrados" />
+            <Button fx:id="btnBuscar" layoutX="240.0" layoutY="5.0" mnemonicParsing="false" onAction="#btnBuscarClick" prefHeight="23.0" prefWidth="229.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Ver los Artículos Filtrados" />
+
          </children>
       </Pane>
    </children>

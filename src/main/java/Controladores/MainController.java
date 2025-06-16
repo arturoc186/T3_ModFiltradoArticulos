@@ -74,6 +74,11 @@ public class MainController {
         Main.setRoot("registrar");
     }
 
+    @FXML
+    void menuBusquedaClick(ActionEvent event) throws IOException{
+        Main.setRoot("filtrado");
+    }
+
     public void btnInfoUsuarioClick(ActionEvent event) throws IOException {
 
         if (Sesion.getClienteActual() == null){
