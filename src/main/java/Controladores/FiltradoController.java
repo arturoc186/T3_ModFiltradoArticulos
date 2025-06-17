@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.lang.annotation.Repeatable;
 import java.net.URL;
 import java.util.List;
@@ -95,21 +96,27 @@ public class FiltradoController implements Initializable {
     }
 
 
-    public void menuLoginClick(ActionEvent event) {
+    public void menuLoginClick(ActionEvent event) throws IOException {
+        Main.setRoot("login");
     }
 
-    public void menuRopaClick(ActionEvent event) {
+    public void menuRopaClick(ActionEvent event) throws IOException {
+        Main.setRoot("catalogo");
     }
 
-    public void menuRegistroClick(ActionEvent event) {
+    public void menuRegistroClick(ActionEvent event) throws IOException {
+        Main.setRoot("registrar");
     }
 
-    public void menuAccClick(ActionEvent event) {
+    public void menuAccClick(ActionEvent event) throws IOException {
+        Main.setRoot("catalogoaccesorio");
     }
 
-    public void menuHistorialClick(ActionEvent event) {
+    public void menuHistorialClick(ActionEvent event) throws IOException {
+        Main.setRoot("historial");
     }
 
-    public void btnInfoUsuarioClick(ActionEvent event) {
+    public void btnInfoUsuarioClick(ActionEvent event) throws IOException {
+        Main.setRoot("informacion");
     }
 }
